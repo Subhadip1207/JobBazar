@@ -1,0 +1,36 @@
+import React, { useEffect } from 'react';
+import Navbar from './ui/shared/Navbar';
+import HeroSection from './HeroSection';
+import CategoryCarousel from './CategoryCarousel';
+import LatestJobs from './LatestJobs';
+import Footer from './Footer';
+import useGetAllJobs from '../hooks/useGetAllJobs';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+const Home = () => {
+  useGetAllJobs(); // Fetch all jobs once the component is mounted
+
+  const { user } = useSelector(store => store.auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user?.role === 'recruiter') {
+      navigate("/admin/companies");
+    }
+  }, [user, navigate]); // Added dependencies for safety
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <HeroSection />
+        <CategoryCarousel />
+        <LatestJobs />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Home;
