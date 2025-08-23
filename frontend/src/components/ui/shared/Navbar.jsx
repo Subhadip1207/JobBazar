@@ -10,7 +10,7 @@ import { User, LogOut, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance.js";
 import { USER_API_ENDPOINT } from "../../../utils/constant";
 import { setUser } from "../../../redux/authSlice";
 
@@ -22,7 +22,7 @@ const Navbar = () => {
 
     const logoutHandler = async () => {
         try {
-            const res = await axios.get(`${USER_API_ENDPOINT}/logout`, {
+            const res = await axiosInstance.get(`${USER_API_ENDPOINT}/logout`, {
                 withCredentials: true,
             });
 
