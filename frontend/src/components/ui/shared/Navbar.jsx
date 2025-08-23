@@ -10,7 +10,7 @@ import { User, LogOut, Menu } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosInstance from "../../../utils/axiosInstance.js";
 import { USER_API_ENDPOINT } from "../../../utils/constant";
 import { setUser } from "../../../redux/authSlice";
 
