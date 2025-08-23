@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../ui/shared/Navbar';
 import ApplicantsTable from './ApplicantsTable';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 import { Application_API_ENDPOINT } from '../../utils/constant';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -16,7 +16,7 @@ const Applicants = () => {
   useEffect(() => {
     const fetchAllApplicants = async () => {
       try {
-        const res = await axios.get(`${Application_API_ENDPOINT}/${id}/applicants`, {
+        const res = await axiosInstance.get(`${Application_API_ENDPOINT}/${id}/applicants`, {
           withCredentials: true
         });
         dispatch(setAllApplicants(res.data.job));
