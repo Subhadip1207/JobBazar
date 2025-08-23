@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { RadioGroup } from "@/components/ui/radio-group"
 import { toast } from "sonner"
-import Axios from "axios"
+import axiosInstance from "../utils/axiosInstance.js";
 import { USER_API_ENDPOINT } from "../../utils/constant.js"
 import { useDispatch, useSelector } from 'react-redux'
 import { Loader2 } from 'lucide-react'
@@ -37,7 +37,7 @@ const Login = () => {
 
     try {
       dispatch(setLoading(true))
-      const res = await Axios.post(`${USER_API_ENDPOINT}/login`, input, {
+      const res = await axiosInstance.post(`${USER_API_ENDPOINT}/login`, input, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       })
