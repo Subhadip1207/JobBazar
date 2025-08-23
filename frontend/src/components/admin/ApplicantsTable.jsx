@@ -16,7 +16,7 @@ import {
 import { MoreHorizontal } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 import { Application_API_ENDPOINT } from '../../utils/constant';
 
 const shortListingStatus = ["Accepted", "Rejected"];
