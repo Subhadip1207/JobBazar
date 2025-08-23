@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setCompanies } from '../../redux/companySlice';
@@ -24,13 +24,13 @@ const CompaniesTable = () => {
 
   const deleteHandler = async (id) => {
     try {
-      const res = await axios.delete(`${COMPANY_API_ENDPOINT}/delete/${id}`, {
+      const res = await axiosInstance.delete(`${COMPANY_API_ENDPOINT}/delete/${id}`, {
         withCredentials: true,
       });
 
       if (res.data.success) {
         toast.success(res.data.message);
-        const updatedRes = await axios.get(`${COMPANY_API_ENDPOINT}/get`, {
+        const updatedRes = await axiosInstance.get(`${COMPANY_API_ENDPOINT}/get`, {
           withCredentials: true,
         });
         dispatch(setCompanies(updatedRes.data.companies));
