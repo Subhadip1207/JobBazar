@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -51,7 +51,7 @@ const CompanySetup = () => {
 
     try {
       setLoading(true);
-      const res = await axios.put(`${COMPANY_API_ENDPOINT}/update/${params.id}`, formData, {
+      const res = await axiosInstance.put(`${COMPANY_API_ENDPOINT}/update/${params.id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true,
       });
