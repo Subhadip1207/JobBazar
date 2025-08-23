@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from './ui/button';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 import { Application_API_ENDPOINT, JOB_API_ENDPOINT } from '../utils/constant.js';
 import { setSingleJob } from '../redux/jobSlice.js';
 import { toast } from "sonner";
@@ -20,7 +20,7 @@ const JobDescription = () => {
 
     const applyJobHandler = async () => {
         try {
-            const res = await axios.post(`${Application_API_ENDPOINT}/apply/${jobId}`, {}, { withCredentials: true });
+            const res = await axiosInstance.post(`${Application_API_ENDPOINT}/apply/${jobId}`, {}, { withCredentials: true });
             if (res.data.success) {
                 setIsApplied(true);
                 const updatedJob = {
@@ -38,7 +38,7 @@ const JobDescription = () => {
     useEffect(() => {
         const fetchSingleJob = async () => {
             try {
-                const res = await axios.get(`${JOB_API_ENDPOINT}/get/${jobId}`, { withCredentials: true });
+                const res = await axiosInstance.get(`${JOB_API_ENDPOINT}/get/${jobId}`, { withCredentials: true });
                 if (res.data.success) {
                     dispatch(setSingleJob(res.data.job));
                     setIsApplied(res.data.job.applications.some(app => app.applicant === user?._id));
