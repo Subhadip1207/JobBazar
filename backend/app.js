@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOption = {
-    origin: 'https://jobbazar-frontend.onrender.com',
+    origin: [process.env.FRONTEND_URL, "http://localhost:5173"],
     credentials: true                
 };
 
