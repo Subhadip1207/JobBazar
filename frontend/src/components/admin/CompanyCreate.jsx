@@ -4,7 +4,7 @@ import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useDispatch } from 'react-redux';
 import { setSingleCompany } from '../../redux/companySlice';
