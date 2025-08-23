@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { JOB_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 
 const AdminJobsTable = () => {
   const { allAdminJobs, searchJobByText } = useSelector(store => store.job);
