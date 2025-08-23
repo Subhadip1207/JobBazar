@@ -21,7 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { JOB_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 
 const AdminJobsTable = () => {
   const { allAdminJobs, searchJobByText } = useSelector(store => store.job);
@@ -30,7 +30,7 @@ const AdminJobsTable = () => {
 
   const deleteHandler = async (id) => {
     try {
-      const res = await axios.delete(`${JOB_API_ENDPOINT}/delete/${id}`, {
+      const res = await axiosInstance.delete(`${JOB_API_ENDPOINT}/delete/${id}`, {
         withCredentials: true,
       });
 
