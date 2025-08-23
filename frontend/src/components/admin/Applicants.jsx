@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../ui/shared/Navbar';
 import ApplicantsTable from './ApplicantsTable';
-import axiosInstance from "../utils/axiosInstance.js";
+import axiosInstance from "../../utils/axiosInstance.js";
 import { Application_API_ENDPOINT } from '../../utils/constant';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
