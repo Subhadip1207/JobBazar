@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
+import {
+  Search,
+  Sparkles,
+  BriefcaseBusiness,
+  TrendingUp,
+  Rocket,
+} from 'lucide-react';
+
 import { Button } from "@/components/ui/button";
 import { useDispatch } from 'react-redux';
 import { setSearchedQuery } from '../redux/jobSlice';
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const [query, setQuery] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,45 +27,310 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="text-center px-4 py-10 sm:py-16 bg-gradient-to-b from-white to-[#f9f9ff]">
-      <div className="flex flex-col gap-5 max-w-5xl mx-auto">
-        {/* Tagline */}
-        <span className="mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium text-sm sm:text-base">
-          🚀 No. 1 Job Hunt Website
-        </span>
+    <section className="
+      relative
+      overflow-hidden
+      min-h-screen
+      flex
+      items-center
+      justify-center
+      px-4
+      bg-[#030712]
+    ">
 
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900">
+      {/* Background Glow Effects */}
+      <div className="
+        absolute
+        top-[-120px]
+        left-[-120px]
+        w-[350px]
+        h-[350px]
+        bg-cyan-500/20
+        blur-3xl
+        rounded-full
+      "></div>
+
+      <div className="
+        absolute
+        bottom-[-120px]
+        right-[-120px]
+        w-[350px]
+        h-[350px]
+        bg-purple-600/20
+        blur-3xl
+        rounded-full
+      "></div>
+
+      {/* Grid Pattern */}
+      <div className="
+        absolute
+        inset-0
+        opacity-[0.04]
+        bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+        bg-[size:70px_70px]
+      "></div>
+
+      <div className="
+        relative
+        z-10
+        max-w-7xl
+        mx-auto
+        text-center
+      ">
+
+        {/* Top Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="
+            inline-flex
+            items-center
+            gap-2
+            px-6
+            py-3
+            rounded-full
+            border
+            border-cyan-500/30
+            bg-white/5
+            backdrop-blur-xl
+            text-cyan-300
+            font-medium
+            shadow-lg
+            mb-8
+          "
+        >
+          <Sparkles className="w-5 h-5" />
+          No. 1 AI Powered Job Hunt Platform
+        </motion.div>
+
+        {/* Main Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="
+            text-4xl
+            sm:text-5xl
+            md:text-6xl
+            lg:text-7xl
+            xl:text-8xl
+            font-black
+            leading-tight
+            tracking-tight
+            text-white
+          "
+        >
           Search, Apply & <br />
-          Get Your <span className="text-[#6A38C2]">Dream Jobs</span>
-        </h1>
+
+          <span className="
+            bg-linear-to-r
+            from-cyan-400
+            via-blue-500
+            to-purple-500
+            bg-clip-text
+            text-transparent
+          ">
+            Get Your Dream Job
+          </span>
+        </motion.h1>
 
         {/* Subheading */}
-        <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
-          Get your dream job based on your skills, knowledge, and experience.
-        </p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="
+            mt-8
+            max-w-3xl
+            mx-auto
+            text-slate-300
+            text-base
+            sm:text-lg
+            md:text-xl
+            leading-8
+          "
+        >
+          Discover thousands of opportunities from top companies,
+          explore careers tailored to your skills, and build the future
+          you always dreamed of.
+        </motion.p>
 
-        {/* Search Input */}
-        <div className="w-full sm:w-[90%] lg:w-[60%] mx-auto">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-0 shadow-md border border-gray-200 pl-4 pr-1 py-1 rounded-full bg-white">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Find your dream jobs"
-              className="w-full sm:w-auto flex-1 px-3 py-2 text-sm sm:text-base outline-none bg-transparent"
-            />
+        {/* Search Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1 }}
+          className="
+            mt-14
+            max-w-3xl
+            mx-auto
+          "
+        >
+
+          <div className="
+            flex
+            flex-col
+            sm:flex-row
+            items-center
+            gap-3
+            bg-white/10
+            backdrop-blur-2xl
+            border
+            border-white/10
+            rounded-2xl
+            p-3
+            shadow-2xl
+          ">
+
+            {/* Input */}
+            <div className="
+              flex
+              items-center
+              gap-3
+              w-full
+              px-4
+            ">
+              <Search className="text-slate-400 w-5 h-5" />
+
+              <input
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search for jobs, companies, skills..."
+                className="
+                  w-full
+                  bg-transparent
+                  outline-none
+                  text-white
+                  placeholder:text-slate-400
+                  text-lg
+                  py-3
+                "
+              />
+            </div>
+
+            {/* Button */}
             <Button
               onClick={searchJobHandler}
-              className="w-full sm:w-auto flex items-center gap-2 px-5 py-2 bg-[#6A38C2] hover:bg-[#5b2db1] active:bg-[#4c2398] text-white transition-all duration-300 rounded-full sm:rounded-r-full"
+              className="
+                w-full
+                sm:w-auto
+                px-8
+                py-6
+                rounded-xl
+                text-base
+                font-semibold
+                bg-linear-to-r
+                from-cyan-500
+                to-blue-600
+                hover:from-cyan-400
+                hover:to-blue-500
+                transition-all
+                duration-300
+                hover:scale-105
+                shadow-lg
+                shadow-cyan-500/20
+              "
             >
-              <Search className="h-5 w-5" />
-              <span className="hidden sm:inline">Search</span>
+              Search Jobs
             </Button>
+
           </div>
-        </div>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 1 }}
+          className="
+            mt-16
+            grid
+            grid-cols-1
+            sm:grid-cols-3
+            gap-6
+            max-w-5xl
+            mx-auto
+          "
+        >
+
+          {/* Card 1 */}
+          <div className="
+            bg-white/5
+            border
+            border-white/10
+            rounded-3xl
+            p-8
+            backdrop-blur-xl
+            hover:scale-105
+            transition-all
+            duration-300
+            shadow-xl
+          ">
+            <BriefcaseBusiness className="w-10 h-10 text-cyan-400 mx-auto mb-4" />
+
+            <h2 className="text-4xl font-bold text-white">
+              10K+
+            </h2>
+
+            <p className="text-slate-400 mt-2">
+              Active Jobs
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="
+            bg-white/5
+            border
+            border-white/10
+            rounded-3xl
+            p-8
+            backdrop-blur-xl
+            hover:scale-105
+            transition-all
+            duration-300
+            shadow-xl
+          ">
+            <TrendingUp className="w-10 h-10 text-blue-400 mx-auto mb-4" />
+
+            <h2 className="text-4xl font-bold text-white">
+              5K+
+            </h2>
+
+            <p className="text-slate-400 mt-2">
+              Companies
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="
+            bg-white/5
+            border
+            border-white/10
+            rounded-3xl
+            p-8
+            backdrop-blur-xl
+            hover:scale-105
+            transition-all
+            duration-300
+            shadow-xl
+          ">
+            <Rocket className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+
+            <h2 className="text-4xl font-bold text-white">
+              99%
+            </h2>
+
+            <p className="text-slate-400 mt-2">
+              Success Rate
+            </p>
+          </div>
+
+        </motion.div>
+
       </div>
-    </div>
+    </section>
   );
 };
 
