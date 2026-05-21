@@ -29,8 +29,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+<<<<<<< HEAD
 
 import axios from 'axios';
+=======
+import axiosInstance from "../../utils/axiosInstance.js";
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 import { JOB_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
@@ -81,6 +85,7 @@ const PostJob = () => {
 
     try {
       setLoading(true);
+<<<<<<< HEAD
 
       const res = await axios.post(
         `${JOB_API_ENDPOINT}/post`,
@@ -93,6 +98,12 @@ const PostJob = () => {
         }
       );
 
+=======
+      const res = await axiosInstance.post(`${JOB_API_ENDPOINT}/post`, input, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/admin/jobs");

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { RadioGroup } from "@/components/ui/radio-group";
-import Axios from "axios";
+import axiosInstance from "../../utils/axiosInstance.js";
 import { USER_API_ENDPOINT } from "../../utils/constant.js";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
@@ -85,6 +85,7 @@ const Signup = () => {
 
     try {
       dispatch(setLoading(true));
+<<<<<<< HEAD
 
       const res = await Axios.post(
         `${USER_API_ENDPOINT}/register`,
@@ -96,6 +97,12 @@ const Signup = () => {
           withCredentials: true,
         }
       );
+=======
+      const res = await axiosInstance.post(`${USER_API_ENDPOINT}/register`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true,
+      });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         navigate("/login");

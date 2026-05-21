@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../ui/shared/Navbar';
 import ApplicantsTable from './ApplicantsTable';
-import axios from 'axios';
+import axiosInstance from "../../utils/axiosInstance.js";
 import { Application_API_ENDPOINT } from '../../utils/constant';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -28,6 +28,7 @@ const Applicants = () => {
   useEffect(() => {
     const fetchAllApplicants = async () => {
       try {
+<<<<<<< HEAD
         const res = await axios.get(
           `${Application_API_ENDPOINT}/${id}/applicants`,
           {
@@ -35,6 +36,11 @@ const Applicants = () => {
           }
         );
 
+=======
+        const res = await axiosInstance.get(`${Application_API_ENDPOINT}/${id}/applicants`, {
+          withCredentials: true
+        });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
         dispatch(setAllApplicants(res.data.job));
       } catch (error) {
         console.error(error);

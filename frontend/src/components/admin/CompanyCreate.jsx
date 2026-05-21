@@ -4,7 +4,7 @@ import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from "../../utils/axiosInstance.js";
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useDispatch } from 'react-redux';
 import { setSingleCompany } from '../../redux/companySlice';
@@ -29,6 +29,7 @@ const CompanyCreate = () => {
     }
 
     try {
+<<<<<<< HEAD
       const res = await axios.post(
         `${COMPANY_API_ENDPOINT}/register`,
         { companyName },
@@ -39,6 +40,14 @@ const CompanyCreate = () => {
           withCredentials: true
         }
       );
+=======
+      const res = await axiosInstance.post(`${COMPANY_API_ENDPOINT}/register`, { companyName }, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        withCredentials: true
+      });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         dispatch(setSingleCompany(res.data.company));

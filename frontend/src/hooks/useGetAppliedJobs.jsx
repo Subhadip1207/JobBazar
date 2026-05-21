@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosInstance from "../utils/axiosInstance.js";
 import React, { useEffect } from 'react'
 import {useDispatch} from 'react-redux'
 import { Application_API_ENDPOINT } from '../utils/constant';
@@ -9,7 +9,7 @@ const useGetAppliedJobs = () => {
     useEffect(()=>{
         const fetchAppliedJobs = async () =>{
             try {
-                const res = await axios.get(`${Application_API_ENDPOINT}/get`,{withCredentials:true})
+                const res = await axiosInstance.get(`${Application_API_ENDPOINT}/get`,{withCredentials:true})
                 if(res.data.success){
                     dispatch(setAllAppliedJobs(res.data.application))
                 }

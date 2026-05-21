@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
-import axios from 'axios';
+import axiosInstance from "../../utils/axiosInstance.js";
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -73,6 +73,7 @@ const CompanySetup = () => {
 
     try {
       setLoading(true);
+<<<<<<< HEAD
 
       const res = await axios.put(
         `${COMPANY_API_ENDPOINT}/update/${params.id}`,
@@ -84,6 +85,12 @@ const CompanySetup = () => {
           withCredentials: true,
         }
       );
+=======
+      const res = await axiosInstance.put(`${COMPANY_API_ENDPOINT}/update/${params.id}`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+        withCredentials: true,
+      });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         dispatch(setSingleCompany(res.data.company));

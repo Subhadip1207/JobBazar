@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
-import axios from 'axios';
+import axiosInstance from "../../utils/axiosInstance.js";
 import { Application_API_ENDPOINT } from '../../utils/constant';
 import { motion } from 'framer-motion';
 
@@ -38,12 +38,16 @@ const ApplicantsTable = () => {
     const statusHandler = async (status, id) => {
         try {
             axios.defaults.withCredentials = true;
+<<<<<<< HEAD
 
             const res = await axios.post(
                 `${Application_API_ENDPOINT}/status/${id}/update`,
                 { status }
             );
 
+=======
+            const res = await axiosInstance.post(`${Application_API_ENDPOINT}/status/${id}/update`, { status });
+>>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
             if (res.data.success) {
                 toast.success(res.data.message);
             }
