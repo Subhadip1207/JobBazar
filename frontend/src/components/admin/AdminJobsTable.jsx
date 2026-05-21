@@ -30,12 +30,9 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { JOB_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
-<<<<<<< HEAD
 import axios from 'axios';
 import { motion } from 'framer-motion';
-=======
 import axiosInstance from "../../utils/axiosInstance.js";
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
 const AdminJobsTable = () => {
   const { allAdminJobs, searchJobByText } = useSelector(store => store.job);

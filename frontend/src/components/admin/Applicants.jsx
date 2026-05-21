@@ -28,19 +28,15 @@ const Applicants = () => {
   useEffect(() => {
     const fetchAllApplicants = async () => {
       try {
-<<<<<<< HEAD
         const res = await axios.get(
           `${Application_API_ENDPOINT}/${id}/applicants`,
           {
             withCredentials: true,
           }
         );
-
-=======
         const res = await axiosInstance.get(`${Application_API_ENDPOINT}/${id}/applicants`, {
           withCredentials: true
         });
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
         dispatch(setAllApplicants(res.data.job));
       } catch (error) {
         console.error(error);
