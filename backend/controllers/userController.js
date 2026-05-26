@@ -41,6 +41,10 @@ export const register = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+    message: error.message,
+    success: false,
+  });
   }
 };
 
@@ -106,6 +110,10 @@ export const login = async (req, res) => {
       });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+    message: error.message,
+    success: false,
+  });
   }
 };
 
@@ -117,6 +125,10 @@ export const logout = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+    message: error.message,
+    success: false,
+  });
   }
 };
 
