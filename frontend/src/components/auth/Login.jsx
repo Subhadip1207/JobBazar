@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Link, useNavigate } from "react-router-dom"
 import { RadioGroup } from "@/components/ui/radio-group"
 import { toast } from "sonner"
-import axiosInstance from "../../utils/axiosInstance.js";
+import Axios from "axios"
 import { USER_API_ENDPOINT } from "../../utils/constant.js"
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -52,7 +52,6 @@ const Login = () => {
 
     try {
       dispatch(setLoading(true))
-<<<<<<< HEAD
 
       const res = await Axios.post(
         `${USER_API_ENDPOINT}/login`,
@@ -64,12 +63,6 @@ const Login = () => {
           withCredentials: true,
         }
       )
-=======
-      const res = await axiosInstance.post(`${USER_API_ENDPOINT}/login`, input, {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      })
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         dispatch(setUser(res.data.user))
@@ -536,4 +529,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;

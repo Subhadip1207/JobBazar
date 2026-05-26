@@ -5,7 +5,6 @@ import {
   Linkedin,
   Mail,
   Github,
-  Instagram,
   ArrowUpRight,
   Sparkles,
   BriefcaseBusiness,
@@ -179,10 +178,10 @@ const Footer = () => {
 
               {
                 [
-                  {"name": "Home", link: "/"},
-                  {"name": "Browse Jobs", link: "/jobs"},
-                  {"name": "About Us", link: "/about"},
-                  {"name": "Contact", link: "/contact"},
+                  {key:"Home",url : "/"},
+                  {key:"Browse Jobs", url:"/browse"},
+                  {key:"About Us", url:"/about"},
+                  {key:"Contact", url : "/contact"}
                 ].map((item, index) => (
                   <div
                     key={index}
@@ -190,7 +189,7 @@ const Footer = () => {
                   >
 
                     <a
-                      href={item.link}
+                      href={item.url}
                       className="
                         flex
                         items-center
@@ -211,7 +210,7 @@ const Footer = () => {
                         duration-300
                       " />
 
-                      {item.name}
+                      {item.key}
 
                     </a>
 
@@ -367,7 +366,7 @@ const Footer = () => {
             </p>
 
             {/* Social Buttons */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex justify-center gap-4">
 
               {/* Facebook */}
               <a
@@ -473,34 +472,6 @@ const Footer = () => {
                 "
               >
                 <Mail className="group-hover:rotate-12 transition-all duration-300" />
-              </a>
-
-
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/subhadipdutta1207/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  group
-                  w-14
-                  h-14
-                  rounded-2xl
-                  bg-white/5
-                  border
-                  border-white/10
-                  flex
-                  items-center
-                  justify-center
-                  text-slate-300
-                  hover:bg-cyan-500
-                  hover:text-white
-                  hover:scale-110
-                  transition-all
-                  duration-300
-                "
-              >
-                <Instagram className="group-hover:rotate-12 transition-all duration-300" />
               </a>
 
             </div>

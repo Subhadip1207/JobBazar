@@ -31,7 +31,6 @@ import {
 } from "@/components/ui/select";
 
 import axios from 'axios';
-import axiosInstance from "../../utils/axiosInstance.js";
 import { JOB_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
@@ -93,10 +92,7 @@ const PostJob = () => {
           withCredentials: true,
         }
       );
-      const res = await axiosInstance.post(`${JOB_API_ENDPOINT}/post`, input, {
-        headers: { 'Content-Type': 'application/json' },
-        withCredentials: true,
-      });
+
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/admin/jobs");
@@ -269,7 +265,7 @@ const PostJob = () => {
                   text-transparent
                 "
               >
-                {" "}New Job{" "}
+                {" "}Dream Job{" "}
               </span>
               Posting
             </h1>

@@ -364,7 +364,7 @@ const Jobs = () => {
                 shrink-0
               "
             >
-              
+
               <FilterCard />
 
             </motion.div>
@@ -442,12 +442,9 @@ const Jobs = () => {
                   <AnimatePresence>
 
                     <div className="
-                      w-[1000px]
                       grid
-                      grid-cols-1
-                      md:grid-cols-2
-                      xl:grid-cols-3
-                      gap-7
+                      grid-cols-[repeat(auto-fit,minmax(340px,1fr))]
+                      gap-8
                     ">
 
                       {
@@ -484,6 +481,7 @@ const Jobs = () => {
                             <div className="
                               relative
                               h-full
+                              w-full
                             ">
 
                               {/* Glow */}
@@ -506,8 +504,9 @@ const Jobs = () => {
                               <div className="
                                 relative
                                 h-full
+                                w-full
                               ">
-                                <Job job={job} />
+                                <Job job={job}/>
                               </div>
 
                             </div>

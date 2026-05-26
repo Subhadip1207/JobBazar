@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
-import axiosInstance from "../../utils/axiosInstance.js";
+import axios from 'axios';
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -73,7 +73,6 @@ const CompanySetup = () => {
 
     try {
       setLoading(true);
-<<<<<<< HEAD
 
       const res = await axios.put(
         `${COMPANY_API_ENDPOINT}/update/${params.id}`,
@@ -85,12 +84,6 @@ const CompanySetup = () => {
           withCredentials: true,
         }
       );
-=======
-      const res = await axiosInstance.put(`${COMPANY_API_ENDPOINT}/update/${params.id}`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-        withCredentials: true,
-      });
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         dispatch(setSingleCompany(res.data.company));
@@ -111,10 +104,10 @@ const CompanySetup = () => {
 
   useEffect(() => {
     setInput({
-      name: singleCompany.name || '',
-      description: singleCompany.description || '',
-      website: singleCompany.website || '',
-      location: singleCompany.location || '',
+      name: singleCompany?.name || '',
+      description: singleCompany?.description || '',
+      website: singleCompany?.website || '',
+      location: singleCompany?.location || '',
       file: null,
     });
   }, [singleCompany]);
@@ -442,11 +435,11 @@ const CompanySetup = () => {
                     p-3
                   "
                 />
-              ) : singleCompany.logo ? (
+              ) : singleCompany?.logo ? (
                 <motion.img
                   initial={{ scale: 0.7, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  src={singleCompany.logo}
+                  src={singleCompany?.logo}
                   alt="Existing Logo"
                   className="
                     h-28

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../ui/shared/Navbar';
 import ApplicantsTable from './ApplicantsTable';
-import axiosInstance from "../../utils/axiosInstance.js";
+import axios from 'axios';
 import { Application_API_ENDPOINT } from '../../utils/constant';
 import { useParams } from 'react-router-dom';
 import { toast } from 'sonner';
@@ -34,9 +34,7 @@ const Applicants = () => {
             withCredentials: true,
           }
         );
-        const res = await axiosInstance.get(`${Application_API_ENDPOINT}/${id}/applicants`, {
-          withCredentials: true
-        });
+
         dispatch(setAllApplicants(res.data.job));
       } catch (error) {
         console.error(error);
@@ -162,7 +160,7 @@ const Applicants = () => {
             </div>
 
             {/* Right Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {/* Applicants */}
               <motion.div
                 whileHover={{ scale: 1.05 }}

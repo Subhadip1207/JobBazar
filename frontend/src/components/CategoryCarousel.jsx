@@ -238,7 +238,7 @@ const CategoryCarousel = () => {
                       backdrop-blur-2xl
                       rounded-[30px]
                       p-8
-                      h-[280px]
+                      h-[280px] md:h-[300px]
                       flex
                       flex-col
                       justify-between

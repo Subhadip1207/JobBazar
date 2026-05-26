@@ -1,4 +1,8 @@
-import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback
+} from "@/components/ui/avatar";
 import {
   Table,
   TableBody,
@@ -29,7 +33,7 @@ import {
 
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { toast } from 'sonner';
-import axiosInstance from "../../utils/axiosInstance.js";
+import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setCompanies } from '../../redux/companySlice';
@@ -49,7 +53,6 @@ const CompaniesTable = () => {
 
   const deleteHandler = async (id) => {
     try {
-<<<<<<< HEAD
       const res = await axios.delete(
         `${COMPANY_API_ENDPOINT}/delete/${id}`,
         {
@@ -67,17 +70,6 @@ const CompaniesTable = () => {
           }
         );
 
-=======
-      const res = await axiosInstance.delete(`${COMPANY_API_ENDPOINT}/delete/${id}`, {
-        withCredentials: true,
-      });
-
-      if (res.data.success) {
-        toast.success(res.data.message);
-        const updatedRes = await axiosInstance.get(`${COMPANY_API_ENDPOINT}/get`, {
-          withCredentials: true,
-        });
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
         dispatch(setCompanies(updatedRes.data.companies));
       }
     } catch (error) {
@@ -273,6 +265,9 @@ const CompaniesTable = () => {
                             }
                             alt="Company Logo"
                           />
+                          <AvatarFallback>
+                            {company?.name?.charAt(0)}
+                          </AvatarFallback>
                         </Avatar>
                       </motion.div>
                     </TableCell>
@@ -291,7 +286,7 @@ const CompaniesTable = () => {
                             duration-300
                           "
                         >
-                          {company.name}
+                          {company?.name}
                         </h2>
 
                         <p className="text-sm text-slate-400 mt-1">
@@ -306,7 +301,7 @@ const CompaniesTable = () => {
                         <CalendarDays className="w-4 h-4 text-violet-300" />
 
                         <span>
-                          {company.createdAt?.split("T")[0]}
+                          {company?.createdAt?.split("T")[0]}
                         </span>
                       </div>
                     </TableCell>

@@ -13,7 +13,7 @@ import { Input } from "./ui/input";
 import { Loader2, UploadCloud, Sparkles, UserCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useDispatch, useSelector } from "react-redux";
-import axiosInstance from "../utils/axiosInstance.js";
+import Axios from "axios";
 import { USER_API_ENDPOINT } from "../utils/constant.js";
 import { toast } from "sonner";
 import { setUser } from "../redux/authSlice";
@@ -94,7 +94,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     } catch (error) {
       console.log(error);
 
-<<<<<<< HEAD
       toast.error(
         error?.response?.data?.message ||
           "Something went wrong in Updation"
@@ -104,40 +103,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
       setTimeout(() => setOpen(false), 200);
     }
   };
-=======
-    const submitHandler = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("fullName", input.fullName);
-        formData.append("email", input.email);
-        formData.append("phoneNumber", input.phoneNumber);
-        formData.append("bio", input.bio);
-        formData.append("skills", input.skills);
-        if (input.file) {
-            formData.append("file", input.file);
-        }
-        try {
-            setLoading(true);
-            const res = await axiosInstance.post(`${USER_API_ENDPOINT}/profile/update`, formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-                withCredentials: true,
-            });
-            if (res.data.success) {
-                dispatch(setUser(res.data.user));
-                localStorage.setItem("user", JSON.stringify(res.data.user));
-                toast.success(res.data.message);
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error(error?.response?.data?.message || "Something went wrong in Updation");
-        } finally {
-            setLoading(false);
-            setTimeout(() => setOpen(false), 100);
-        }
-    };
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
   const fields = [
     {

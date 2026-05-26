@@ -29,13 +29,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toast } from "sonner";
-<<<<<<< HEAD
 
 import axios from "axios";
 
-=======
-import axiosInstance from "../../../utils/axiosInstance.js";
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 import { USER_API_ENDPOINT } from "../../../utils/constant";
 
 import { setUser } from "../../../redux/authSlice";
@@ -45,15 +41,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
 
-<<<<<<< HEAD
   const dispatch = useDispatch();
-=======
-    const logoutHandler = async () => {
-        try {
-            const res = await axiosInstance.get(`${USER_API_ENDPOINT}/logout`, {
-                withCredentials: true,
-            });
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
   const navigate = useNavigate();
 

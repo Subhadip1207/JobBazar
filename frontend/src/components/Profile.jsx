@@ -358,11 +358,17 @@ const Profile = () => {
                         {user?.phoneNumber || "N/A"}
                       </span>
 
-                      
-
                     </div>
 
-                    <motion.div
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* EDIT BUTTON */}
+              <motion.div
+              className="-mt-20"
                 whileHover={{
                   scale: 1.05,
                 }}
@@ -401,53 +407,6 @@ const Profile = () => {
                 </Button>
 
               </motion.div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              {/* EDIT BUTTON */}
-              {/* <motion.div
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-              >
-
-                <Button
-
-                  onClick={() => setOpen(true)}
-
-                  className="
-                    h-14
-                    px-8
-                    rounded-2xl
-                    text-lg
-                    font-semibold
-                    bg-linear-to-r
-                    from-cyan-500
-                    via-blue-500
-                    to-purple-600
-                    hover:opacity-90
-                    shadow-2xl
-                  "
-                >
-
-                  <Pen className="
-                    h-5
-                    w-5
-                    mr-2
-                  " />
-
-                  Edit Profile
-
-                </Button>
-
-              </motion.div> */}
 
             </div>
 

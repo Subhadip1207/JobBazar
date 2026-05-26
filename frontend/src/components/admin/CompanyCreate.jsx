@@ -4,7 +4,7 @@ import { Label } from '@radix-ui/react-label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
-import axiosInstance from "../../utils/axiosInstance.js";
+import axios from 'axios';
 import { COMPANY_API_ENDPOINT } from '../../utils/constant';
 import { useDispatch } from 'react-redux';
 import { setSingleCompany } from '../../redux/companySlice';
@@ -29,7 +29,6 @@ const CompanyCreate = () => {
     }
 
     try {
-<<<<<<< HEAD
       const res = await axios.post(
         `${COMPANY_API_ENDPOINT}/register`,
         { companyName },
@@ -40,14 +39,6 @@ const CompanyCreate = () => {
           withCredentials: true
         }
       );
-=======
-      const res = await axiosInstance.post(`${COMPANY_API_ENDPOINT}/register`, { companyName }, {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        withCredentials: true
-      });
->>>>>>> 84f140c1fc401277c0f3151d43d4187e8e5b21a9
 
       if (res.data.success) {
         dispatch(setSingleCompany(res.data.company));
@@ -233,7 +224,32 @@ const CompanyCreate = () => {
               <Building2 className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-400 w-5 h-5" />
             </div>
 
+            {/* Tips */}
+            <div
+              className="
+                mt-5
+                rounded-2xl
+                border
+                border-cyan-500/20
+                bg-cyan-500/10
+                p-4
+                flex
+                gap-3
+              "
+            >
+              <Sparkles className="text-cyan-300 w-5 h-5 mt-0.5" />
 
+              <div>
+                <h3 className="text-cyan-300 font-semibold text-sm">
+                  Pro Tip
+                </h3>
+
+                <p className="text-slate-300 text-sm mt-1">
+                  Choose a unique and memorable company name to attract more
+                  candidates and improve brand recognition.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* Buttons */}
