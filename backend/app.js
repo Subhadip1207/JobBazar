@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 //cors authentication.which allows cross-origin requests
 const corsOption = {
-  origin: 'http://localhost:5173',
+  origin: 'https://jobbazar-frontend-xmpl.onrender.com',
   credentials: true,
 };
 app.use(cors(corsOption));
