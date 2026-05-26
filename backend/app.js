@@ -12,16 +12,6 @@ dotenv.config();
 
 const app = express();
 
-
-//middleware
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(cookieParser());
-const corsOption = {
-    origin: ["https://jobbazar-frontend.onrender.com", "http://localhost:5173"],
-    credentials: true                
-};
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
