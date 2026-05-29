@@ -11,6 +11,7 @@ import {
   Building2,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const features = [
   {
@@ -85,7 +86,7 @@ const AboutUs = () => {
             </p>
 
             <div className="flex flex-wrap gap-5 mt-10">
-                <a href="/jobs">
+                <Link href="/jobs">
 
                 <button
                 className="
@@ -101,7 +102,7 @@ const AboutUs = () => {
                 Explore Jobs
               </button>
 
-                </a>
+                </Link>
               
 
               <button
